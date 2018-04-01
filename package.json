@@ -1,18 +1,19 @@
 {
   "name": "lotusjs-cli",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "lotus": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.5.1",
-    "chalk": "^2.3.2",
     "inquirer": "^5.2.0",
-    "moment": "^2.22.0",
-    "shelljs": "^0.8.1"
+    "lotusjs-util": "^1.0.0",
+    "moment": "^2.22.0"
   }
 }

@@ -1,7 +1,9 @@
+#!/usr/bin/env node
 var inquirer = require('inquirer')
-const chalk = require('chalk');
 var  init = require('./init')
-global.log = require('./Util/logger');
+const util = require('lotusjs-util')
+global.log = util.log;
+global.exec = util.exec;
 inquirer
   .prompt([{
       type: 'list',
