@@ -1,5 +1,5 @@
 {
-  "name": "lotus-cli",
+  "name": "lotusjs-cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,7 @@
     "bluebird": "^3.5.1",
     "chalk": "^2.3.2",
     "inquirer": "^5.2.0",
+    "moment": "^2.22.0",
     "shelljs": "^0.8.1"
   }
 }

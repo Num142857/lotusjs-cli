@@ -1,6 +1,7 @@
 var inquirer = require('inquirer')
 const chalk = require('chalk');
 var  init = require('./init')
+global.log = require('./Util/logger');
 inquirer
   .prompt([{
       type: 'list',
