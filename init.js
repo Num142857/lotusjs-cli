@@ -40,7 +40,7 @@ module.exports = {
     log.info("开始生成脚手架")
     exec('pwd')
     spawn(scaffoldName, [], {
-      cwd: __dirname,
+      cwd: process.cwd(),
       stdio: 'inherit'
     });
 
