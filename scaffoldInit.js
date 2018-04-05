@@ -30,25 +30,35 @@ module.exports = {
     let scaffoldName = 'lotus-scaffold-'+answers.init
     log.info('你选择的脚手架是：' , answers.init)
     
-    log.info('开始拉取' , scaffoldName)
-    var version = shelljs.exec(`${scaffoldName} -v`, {silent:true}).stdout;
-    // var version = shelljs.exec(`${scaffoldName} --version`, {silent:true}).stdout;
-    var appInfo = shelljs.exec(`cnpm view ${scaffoldName}  version`, {silent:true}).stdout;
-    version = excludeSpecial(version)
-    appInfo = excludeSpecial(appInfo)
 
-    if(appInfo !== version||!shell.which(scaffoldName)){
-      console.log('版本是一样的')
+    var localVersion = shelljs.exec(`${scaffoldName} -v`, {silent:true}).stdout;
+    // var version = shelljs.exec(`${scaffoldName} --version`, {silent:true}).stdout;
+    var remoteVersion = shelljs.exec(`cnpm view ${scaffoldName}  version`, {silent:true}).stdout;
+    localVersion = excludeSpecial(localVersion)
+    remoteVersion = excludeSpecial(remoteVersion)
+
+   let installPack = async function(){
       try {
+        log.info('开始拉取' , scaffoldName)
         await exec(`cnpm i ${scaffoldName} -g`)
       } catch (error) {
       log.warn('报错了：' + error)
       }
     }
+    console.log(remoteVersion , localVersion)
+    if(remoteVersion !== localVersion){
+      //todo：需要询问用户是否更新，或者忽略该版本
+      log.info(`发现新版本${remoteVersion}`,'开始更新')
+      installPack()
+    }
+    
+    if(!shelljs.which(scaffoldName)){
+      log.info('开始安装脚手架',scaffoldName)
+      installPack()
+    }
 
     log.info("开始生成脚手架")
-    exec('pwd')
-    spawn(scaffoldName, [], {
+    spawn(`${scaffoldName}`, ['init'], {
       cwd: process.cwd(),
       stdio: 'inherit'
     });

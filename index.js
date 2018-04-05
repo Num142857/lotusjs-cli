@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var inquirer = require('inquirer')
-var  init = require('./init')
+var  scaffoldInit = require('./scaffoldInit')
 const util = require('lotusjs-util')
 global.log = util.log;
 global.exec = util.exec;
@@ -15,7 +15,7 @@ inquirer
   .then(answers => {
       switch (answers.do) {
           case '项目初始化':
-          inquirer.prompt(init.config).then(answers=>{init.callback(answers)})
+          inquirer.prompt(scaffoldInit.config).then(answers=>{scaffoldInit.callback(answers)})
            break;
       }
   });
