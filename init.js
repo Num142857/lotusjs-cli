@@ -1,6 +1,6 @@
 var inquirer = require('inquirer')
 var spawn = require('child_process').spawn;
-
+const shelljs = require('shelljs');
 
 module.exports = {
   config: [{
@@ -31,10 +31,19 @@ module.exports = {
     log.info('你选择的脚手架是：' , answers.init)
     
     log.info('开始拉取' , scaffoldName)
-    try {
-      await exec(`cnpm i ${scaffoldName} -g`)
-    } catch (error) {
-     log.warn('报错了：' + error)
+    var version = shelljs.exec(`${scaffoldName} -v`, {silent:true}).stdout;
+    // var version = shelljs.exec(`${scaffoldName} --version`, {silent:true}).stdout;
+    var appInfo = shelljs.exec(`cnpm view ${scaffoldName}  version`, {silent:true}).stdout;
+    version = excludeSpecial(version)
+    appInfo = excludeSpecial(appInfo)
+
+    if(appInfo !== version||!shell.which(scaffoldName)){
+      console.log('版本是一样的')
+      try {
+        await exec(`cnpm i ${scaffoldName} -g`)
+      } catch (error) {
+      log.warn('报错了：' + error)
+      }
     }
 
     log.info("开始生成脚手架")
@@ -46,3 +55,10 @@ module.exports = {
 
   }
 }
+var excludeSpecial = function(s) {  
+  // 去掉转义字符  
+  s = s.replace(/[\'\"\\\/\b\f\n\r\t]/g, '');  
+  // 去掉特殊字符  
+  // s = s.replace(/[\@\#\$\%\^\&\*\{\}\:\"\L\<\>\?]/);  
+  return s;  
+}; 

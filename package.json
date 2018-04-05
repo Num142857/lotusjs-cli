@@ -1,6 +1,6 @@
 {
   "name": "lotusjs-cli",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -14,6 +14,7 @@
   "dependencies": {
     "inquirer": "^5.2.0",
     "lotusjs-util": "^1.0.0",
-    "moment": "^2.22.0"
+    "moment": "^2.22.0",
+    "shelljs": "^0.8.1"
   }
 }
