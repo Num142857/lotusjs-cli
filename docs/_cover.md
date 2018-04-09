@@ -11,7 +11,7 @@
 * 易种草
 
 [GitHub](https://github.com/Fantasy9527/lotusjs-cli)
-[Get Started](#docsify)
+[Get Started](#lotus-cli)
 <!-- 背景色 -->
 
 ![color](#daffb3)
