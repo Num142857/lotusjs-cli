@@ -10,20 +10,17 @@
 
 ## 特性
 
-* No statically built html files
-* Simple and lightweight (~19kB gzipped)
-* Smart full-text search plugin
-* Multiple themes
-* Useful plugin API
-* Emoji support
-* Compatible with IE10+
+* 轻松的项目初始化
+* 简单的脚手架初始化
+* 轻松定义模板代码
+* 支持所有js项目的脚手架定制
+* 易用的交互式命令行工具
 
-- Support SSR ([example](https://github.com/QingWei-Li/docsify-ssr-demo))
 
 ## 例子
 
-Check out the [Showcase](https://github.com/QingWei-Li/docsify/#showcase) to docsify in use.
+不存在
 
 ## 贡献
 
-Please consider donating if you think docsify is helpful to you or that my work is valuable. I am happy if you can help me [buy a cup of coffee](https://github.com/QingWei-Li/donate). :heart:
+如果你觉得不足的地方,欢迎来提交PR
