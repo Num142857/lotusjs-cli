@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var inquirer = require('inquirer')
-var  scaffoldInit = require('./scaffoldInit')
+var  scaffoldInit = require('../src/scaffoldInit')
 const util = require('lotusjs-util')
 global.log = util.log;
 global.exec = util.exec;
