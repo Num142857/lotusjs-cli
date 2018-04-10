@@ -6,6 +6,7 @@ const appInfo = require('../package.json')
 var scaffoldInit = require('../src/scaffoldInit')
 var generate = require('../src/generate')
 var coderCalendar = require('../src/coderCalendar')
+var npm = require('../src/npm')
 
 global.log = util.log;
 global.exec = util.exec;
@@ -39,7 +40,7 @@ inquirer
     type: 'list',
     name: 'do',
     message: '你要干嘛?',
-    choices: ['生成该项目的模板代码', '项目初始化', '脚手架项目初始化', '脚手架版本管理', '程序员老黄历'],
+    choices: ['生成该项目的模板代码', '项目初始化', '脚手架项目初始化', '脚手架版本管理','private npm', '程序员老黄历'],
   },
   ])
   .then(answers => {
@@ -53,5 +54,8 @@ inquirer
       case '程序员老黄历':
         coderCalendar.init()
         break;
+      case 'private npm':
+      inquirer.prompt(npm.config).then(answers => { npm.callback(answers) })
+      break;
     }
   });
