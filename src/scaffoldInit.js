@@ -26,9 +26,15 @@ module.exports = {
       'vue-vuex',
     ]
   }, ],
-  callback: async function (answers) {
-    let scaffoldName = 'lotus-scaffold-'+answers.init
-    log.info('你选择的脚手架是：' , answers.init)
+  callback: async function (answers,type) {
+    if(type ==='cmd'){
+      var scaffoldName = 'lotus-scaffold-' + answers
+      log.info('你选择的脚手架是：', answers)
+    }else{
+      var scaffoldName = 'lotus-scaffold-' + answers.init
+      log.info('你选择的脚手架是：', answers.init)
+    }
+
     
 
     var localVersion = shelljs.exec(`${scaffoldName} -v`, {silent:true}).stdout;
@@ -63,6 +69,9 @@ module.exports = {
       stdio: 'inherit'
     });
 
+  },
+  cmd(){
+    console.log('')
   }
 }
 var excludeSpecial = function(s) {  
