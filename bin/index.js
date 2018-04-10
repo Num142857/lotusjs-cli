@@ -2,6 +2,7 @@
 var inquirer = require('inquirer')
 const program = require('commander');
 var scaffoldInit = require('../src/scaffoldInit')
+var generate = require('../src/generate')
 const util = require('lotusjs-util')
 const appInfo = require('../package.json')
 global.log = util.log;
@@ -19,6 +20,16 @@ program
     process.exit(1);
   });
 
+program
+  .command('generate')
+  .alias('g')
+  .description('模板生成')
+  .arguments('<type> [src]')  //[]:可选  <>:必选
+  .action((type, src)=>{
+    generate.init(type, src)
+    process.exit(1);
+  });
+
 program.parse(process.argv);
 
 inquirer
@@ -33,6 +44,9 @@ inquirer
     switch (answers.do) {
       case '项目初始化':
         inquirer.prompt(scaffoldInit.config).then(answers => { scaffoldInit.callback(answers) })
+        break;
+      case '生成该项目的模板代码':
+        generate.execute()
         break;
     }
   });

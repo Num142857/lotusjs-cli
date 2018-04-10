@@ -6,18 +6,16 @@ module.exports = {
   config: [{
     type: 'list',
     name: 'init',
-    message: '你需要初始化什么框架？',
+    message: '你需要初始化什么框架',
     choices: [
-      new inquirer.Separator('-----微前端系列'),
-      'micro-react',
-      'micro-vue',
-      'micro-angular',
       new inquirer.Separator('-----react系列'),
       'react',
       'react-antd',
       'react-mobx',
-      'react-dva',
-      'react-redux',
+      new inquirer.Separator('-----微前端系列'),
+      'micro-react',
+      'micro-vue',
+      'micro-angular',
       new inquirer.Separator('-----Angular系列'),
       'angular',
       'angular-antd',
@@ -34,8 +32,6 @@ module.exports = {
       var scaffoldName = 'lotus-scaffold-' + answers.init
       log.info('你选择的脚手架是：', answers.init)
     }
-
-    
 
     var localVersion = shelljs.exec(`${scaffoldName} -v`, {silent:true}).stdout;
     // var version = shelljs.exec(`${scaffoldName} --version`, {silent:true}).stdout;
@@ -69,9 +65,6 @@ module.exports = {
       stdio: 'inherit'
     });
 
-  },
-  cmd(){
-    console.log('')
   }
 }
 var excludeSpecial = function(s) {  

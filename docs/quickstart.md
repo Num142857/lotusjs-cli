@@ -61,3 +61,19 @@ lo i micro-react
 ```
 
 ## 生成模板代码
+进入项目目录,选择 `生成该项目的模板代码` 再选择该脚手架提供的模板类型
+
+```bash
+$ lo
+? 你要干嘛? 生成该项目的模板代码
+? 选择你要初始化的模板类型 (Use arrow keys)
+❯ component
+  page
+```
+
+或者
+
+```bash
+lo g <模板类型> [生成模板代码的路径]
+lo g page src/model/my-new-page
+```
