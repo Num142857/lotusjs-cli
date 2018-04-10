@@ -72,7 +72,12 @@ $ lo
 ```
 
 或者
+```bash
+lo generate <模板类型> [生成模板代码的路径]
+lo generate page src/model/my-new-page
+```
 
+简写:
 ```bash
 lo g <模板类型> [生成模板代码的路径]
 lo g page src/model/my-new-page
