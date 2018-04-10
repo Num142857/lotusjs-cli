@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 var inquirer = require('inquirer')
 const program = require('commander');
-var scaffoldInit = require('../src/scaffoldInit')
-var generate = require('../src/generate')
 const util = require('lotusjs-util')
 const appInfo = require('../package.json')
+var scaffoldInit = require('../src/scaffoldInit')
+var generate = require('../src/generate')
+var coderCalendar = require('../src/coderCalendar')
+
 global.log = util.log;
 global.exec = util.exec;
 
@@ -37,7 +39,7 @@ inquirer
     type: 'list',
     name: 'do',
     message: '你要干嘛?',
-    choices: ['生成该项目的模板代码', '项目初始化', '脚手架项目初始化', '脚手架版本管理', '占卜'],
+    choices: ['生成该项目的模板代码', '项目初始化', '脚手架项目初始化', '脚手架版本管理', '程序员老黄历'],
   },
   ])
   .then(answers => {
@@ -47,6 +49,9 @@ inquirer
         break;
       case '生成该项目的模板代码':
         generate.execute()
+        break;
+      case '程序员老黄历':
+        coderCalendar.init()
         break;
     }
   });
