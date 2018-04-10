@@ -7,6 +7,10 @@
 前端通用脚手架管理工具
 
 查看 [快速入门](quickstart.md) 开始你的lotusjs之旅吧
+## 安装
+```bash
+$ npm install lotusjs-cli -g
+```
 
 ## 特性
 
