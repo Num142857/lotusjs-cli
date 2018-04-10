@@ -83,6 +83,37 @@ lo g <模板类型> [生成模板代码的路径]
 lo g page src/model/my-new-page
 ```
 
+## 内部私有npm包管理
+选择 `private npm`
+
+```bash
+? 你要干嘛?
+  生成该项目的模板代码
+  项目初始化
+  脚手架项目初始化
+  脚手架版本管理
+❯ private npm
+  程序员老黄历
+```
+### 发布私有包
+
+选择 `publish`
+```
+? 你要干嘛? private npm
+? What do you want to do? (Use arrow keys)
+❯ publish
+  add user
+```
+### 登录或者注册
+选择  `add user`
+```
+? 你要干嘛? private npm
+? What do you want to do? (Use arrow keys)
+  publish
+❯ add user
+```
+
+
 ## 查看今天运势
 ```bash
 $ lo
