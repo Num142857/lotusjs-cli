@@ -108,7 +108,7 @@ lo g page src/model/my-new-page
 ```bash
 lo publish
 ```
-### 登录或者注册
+### 登录或者注册私有npm
 选择  `add user`
 ```
 ? What do you want to do? private npm

@@ -14,14 +14,14 @@ module.exports = {
     //   return
       switch (answers.do) {
           case 'publish':
-          spawn(`npm`, ['publish', '--registry','http://npm.jc:4873'], {
+          spawn(`npm`, ['publish', '--registry','http://npm.jc'], {
             cwd: process.cwd(),
             stdio: 'inherit'
         });
           break;
 
           case 'adduser':
-          spawn(`npm`, ['adduser', '--registry','http://npm.jc:4873'], {
+          spawn(`npm`, ['adduser', '--registry','http://npm.jc'], {
             cwd: process.cwd(),
             stdio: 'inherit'
         });
