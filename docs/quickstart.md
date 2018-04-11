@@ -121,9 +121,11 @@ lo publish
 lo adduser
 ```
 ### 从私有库安装依赖
+根据package.json安装
 ```bash
 lo install
 ```
+
 指定安装
 
 ```bash
@@ -134,6 +136,18 @@ lo install pm2
 
 ```bash
 lo install pm2 react
+```
+
+支持save
+
+```bash
+lo install pm2 react  --save
+```
+
+全局安装
+
+```bash
+lo install pm2 react  -g
 ```
 
 

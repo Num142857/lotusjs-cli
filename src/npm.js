@@ -33,7 +33,7 @@ module.exports = {
           spawn(`npm`, arg, {
             cwd: process.cwd(),
             stdio: 'inherit'
-        });
+          });
           break;
       }
   }

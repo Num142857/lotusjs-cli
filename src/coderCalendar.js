@@ -89,7 +89,7 @@ module.exports = {
          ${printBad(1)}
          ${printBad(2)}
          ${printBad(3)}
-        `))        
+        `))
         console.log(chalk.green(`
        ${chalk.cyan('----------------------------------')}
         座位朝向:面向${printDirections()}写程序，BUG 最少

@@ -51,17 +51,18 @@ program
 program
   .command('install [otherName...]')
   .description('从私有库安装npm包')
-  .option('-s --save', '保存在配置文件', 'medium')
-  .option('-g --global', '全局安装', 'medium')
-  .action((otherName)=>{
-    console.log(this)
+  .option('-s --save', 'true')
+  .option('-g --global','true')
+  .action((otherName, cmd)=>{
+    if (cmd.save) otherName.push('--save')
+    if (cmd.global) otherName.push('-g')
     npm.callback({ do: 'install', arg: otherName})
     process.exit(1);
     
   });
 
 program.parse(process.argv);
-
+// console.log(program.save)
 inquirer
   .prompt([{
     type: 'list',
