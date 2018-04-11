@@ -7,9 +7,9 @@ module.exports = {
     type: 'list',
     name: 'do',
     message: 'What do you want to do?',
-    choices: ['publish','add user']
+    choices: ['publish','adduser']
   }, ],
-  callback: async function (answers,type) {
+  callback: async function (answers) {
       console.log(answers)
     //   return
       switch (answers.do) {
@@ -20,7 +20,7 @@ module.exports = {
         });
           break;
 
-          case 'add user':
+          case 'adduser':
           spawn(`npm`, ['adduser', '--registry','http://npm.jc:4873'], {
             cwd: process.cwd(),
             stdio: 'inherit'

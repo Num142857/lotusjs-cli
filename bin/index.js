@@ -32,6 +32,21 @@ program
     generate.init(type, src)
     process.exit(1);
   });
+program
+  .command('publish')
+  .description('发布私有包')
+  .action((type, src)=>{
+    npm.callback({ do:'publish'})
+    process.exit(1);
+  });
+
+program
+  .command('adduser')
+  .description('登录或者注册')
+  .action((type, src)=>{
+    npm.callback({ do:'adduser'})
+    process.exit(1);
+  });
 
 program.parse(process.argv);
 
@@ -39,7 +54,7 @@ inquirer
   .prompt([{
     type: 'list',
     name: 'do',
-    message: '你要干嘛?',
+    message: 'What do you want to do?',
     choices: ['生成该项目的模板代码', '项目初始化', '脚手架项目初始化', '脚手架版本管理','private npm', '程序员老黄历'],
   },
   ])

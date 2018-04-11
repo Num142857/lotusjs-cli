@@ -6,7 +6,7 @@ module.exports = {
   config: [{
     type: 'list',
     name: 'init',
-    message: '你需要初始化什么框架',
+    message: '哪一个才是你的选择?',
     choices: [
       new inquirer.Separator('-----react系列'),
       'react',

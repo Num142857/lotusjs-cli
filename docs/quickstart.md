@@ -23,7 +23,7 @@ cnpm install lotusjs-cli -g
 
 ```bash
 > $ lo
-? 你要干嘛? (Use arrow keys)
+? What do you want to do? (Use arrow keys)
 ❯ 生成该项目的模板代码
   项目初始化
   脚手架项目初始化
@@ -39,8 +39,8 @@ cnpm install lotusjs-cli -g
  选择 `项目初始化`后进入:
 
 ```bash
-? 你要干嘛? 项目初始化
-? 你需要初始化什么框架？ (Use arrow keys)
+? What do you want to do? 项目初始化
+? 哪一个才是你的选择？ (Use arrow keys)
   -----微前端系列
 ❯ micro-react
   micro-vue
@@ -65,7 +65,7 @@ lo i micro-react
 
 ```bash
 $ lo
-? 你要干嘛? 生成该项目的模板代码
+? What do you want to do? 生成该项目的模板代码
 ? 选择你要初始化的模板类型 (Use arrow keys)
 ❯ component
   page
@@ -87,7 +87,7 @@ lo g page src/model/my-new-page
 选择 `private npm`
 
 ```bash
-? 你要干嘛?
+? What do you want to do?
   生成该项目的模板代码
   项目初始化
   脚手架项目初始化
@@ -96,28 +96,36 @@ lo g page src/model/my-new-page
   程序员老黄历
 ```
 ### 发布私有包
-
+进入项目根目录
 选择 `publish`
 ```
-? 你要干嘛? private npm
+? What do you want to do? private npm
 ? What do you want to do? (Use arrow keys)
 ❯ publish
   add user
 ```
+或者直接命令行:
+```bash
+lo publish
+```
 ### 登录或者注册
 选择  `add user`
 ```
-? 你要干嘛? private npm
+? What do you want to do? private npm
 ? What do you want to do? (Use arrow keys)
   publish
 ❯ add user
+```
+或者直接命令行:
+```bash
+lo adduser
 ```
 
 
 ## 查看今天运势
 ```bash
 $ lo
-? 你要干嘛? 程序员老黄历
+? What do you want to do? 程序员老黄历
 
         现在是2018年4月10日星期二晚上6点52分
         ---------------------------------
