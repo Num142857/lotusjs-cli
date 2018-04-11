@@ -48,6 +48,14 @@ program
     process.exit(1);
   });
 
+program
+  .command('install')
+  .description('从私有库安装npm包')
+  .action((type, src)=>{
+    npm.callback({ do:'install'})
+    process.exit(1);
+  });
+
 program.parse(process.argv);
 
 inquirer

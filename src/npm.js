@@ -26,9 +26,13 @@ module.exports = {
             stdio: 'inherit'
         });
           break;
-      
+
+          case 'install':
+          spawn(`npm`, ['install', '--registry','http://npm.jc'], {
+            cwd: process.cwd(),
+            stdio: 'inherit'
+        });
+          break;
       }
-
-
   }
 }
