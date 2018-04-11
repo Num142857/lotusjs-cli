@@ -120,6 +120,21 @@ lo publish
 ```bash
 lo adduser
 ```
+### 从私有库安装依赖
+```bash
+lo install
+```
+指定安装
+
+```bash
+lo install pm2
+```
+
+批量安装
+
+```bash
+lo install pm2 react
+```
 
 
 ## 查看今天运势

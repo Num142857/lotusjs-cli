@@ -49,11 +49,15 @@ program
   });
 
 program
-  .command('install')
+  .command('install [otherName...]')
   .description('从私有库安装npm包')
-  .action((type, src)=>{
-    npm.callback({ do:'install'})
+  .option('-s --save', '保存在配置文件', 'medium')
+  .option('-g --global', '全局安装', 'medium')
+  .action((otherName)=>{
+    console.log(this)
+    npm.callback({ do: 'install', arg: otherName})
     process.exit(1);
+    
   });
 
 program.parse(process.argv);
@@ -79,6 +83,6 @@ inquirer
         break;
       case 'private npm':
       inquirer.prompt(npm.config).then(answers => { npm.callback(answers) })
-      break;
+        break;
     }
   });

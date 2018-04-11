@@ -10,8 +10,6 @@ module.exports = {
     choices: ['publish','adduser']
   }, ],
   callback: async function (answers) {
-      console.log(answers)
-    //   return
       switch (answers.do) {
           case 'publish':
           spawn(`npm`, ['publish', '--registry','http://npm.jc'], {
@@ -28,7 +26,11 @@ module.exports = {
           break;
 
           case 'install':
-          spawn(`npm`, ['install', '--registry','http://npm.jc'], {
+          let arg = ['install']
+          let config = ['--registry', 'http://npm.jc']
+          arg = arg.concat(answers.arg)
+          arg = arg.concat(config)
+          spawn(`npm`, arg, {
             cwd: process.cwd(),
             stdio: 'inherit'
         });
