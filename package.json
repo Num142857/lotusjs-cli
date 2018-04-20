@@ -1,6 +1,6 @@
 {
   "name": "lotusjs-cli",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -14,15 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.3.2",
-    "color-convert": "^1.9.1",
-    "colors": "^1.2.1",
     "commander": "^2.15.1",
     "fs-extra": "^5.0.0",
-    "has-flag": "^3.0.0",
     "inquirer": "^5.2.0",
     "lotusjs-util": "^1.0.0",
     "moment": "^2.22.0",
-    "nn": "0.0.6",
     "pm2": "^2.10.2",
     "shelljs": "^0.8.1"
   }

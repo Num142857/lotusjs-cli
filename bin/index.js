@@ -61,6 +61,22 @@ program
     
   });
 
+program
+  .command('info [otherName...]')
+  .description('从私有库查看npm包详细信息')
+  .action((otherName, cmd)=>{
+    npm.callback({ do: 'info', arg: otherName})
+    process.exit(1);
+  });
+
+// program
+//   .command('*')
+//   .description('从私有库查看npm包详细信息')
+//   .action((otherName, cmd)=>{
+//     npm.callback({ do: 'info', arg: otherName})
+//     process.exit(1);
+//   });
+
 program.parse(process.argv);
 // console.log(program.save)
 inquirer

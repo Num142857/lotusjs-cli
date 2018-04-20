@@ -151,6 +151,14 @@ lo install pm2 react  -g
 ```
 
 
+### 支持查看私有库npm包详情
+```bash
+lo info pm2
+```
+
+## 本地脚手架版本管理
+
+
 ## 查看今天运势
 ```bash
 $ lo
