@@ -24,9 +24,9 @@ cnpm install lotusjs-cli -g
 ```bash
 > $ lo
 ? What do you want to do? (Use arrow keys)
-❯ 生成该项目的模板代码
+❯ 项目模板
   项目初始化
-  脚手架项目初始化
+  脚手架
   脚手架版本管理
   占卜
 ```
@@ -61,11 +61,11 @@ lo i micro-react
 ```
 
 ## 生成模板代码
-进入项目目录,选择 `生成该项目的模板代码` 再选择该脚手架提供的模板类型
+进入项目目录,选择 `项目模板` 再选择该脚手架提供的模板类型
 
 ```bash
 $ lo
-? What do you want to do? 生成该项目的模板代码
+? What do you want to do? 项目模板
 ? 选择你要初始化的模板类型 (Use arrow keys)
 ❯ component
   page
@@ -88,12 +88,11 @@ lo g page src/model/my-new-page
 
 ```bash
 ? What do you want to do?
-  生成该项目的模板代码
+  项目模板
   项目初始化
-  脚手架项目初始化
-  脚手架版本管理
+  脚手架
 ❯ private npm
-  程序员老黄历
+  老黄历
 ```
 ### 发布私有包
 进入项目根目录
@@ -162,7 +161,7 @@ lo info pm2
 ## 查看今天运势
 ```bash
 $ lo
-? What do you want to do? 程序员老黄历
+? What do you want to do? 老黄历
 
         现在是2018年4月10日星期二晚上6点52分
         ---------------------------------

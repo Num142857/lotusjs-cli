@@ -85,7 +85,7 @@ inquirer
     type: 'list',
     name: 'do',
     message: 'What do you want to do?',
-    choices: ['生成该项目的模板代码', '项目初始化', '脚手架','private npm', '程序员老黄历'],
+    choices: ['项目模板', '项目初始化', '脚手架','private npm', '老黄历'],
   },
   ])
   .then(answers => {
@@ -93,10 +93,10 @@ inquirer
       case '项目初始化':
         inquirer.prompt(scaffoldInit.config).then(answers => { scaffoldInit.callback(answers) })
         break;
-      case '生成该项目的模板代码':
+      case '项目模板':
         generate.execute()
         break;
-      case '程序员老黄历':
+      case '老黄历':
         coderCalendar.init()
         break;
       case 'private npm':
