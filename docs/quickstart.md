@@ -155,11 +155,12 @@ lo info pm2
 ```
 
 ## 脚手架管理
-新建一个脚手架项目目录
+新建一个名称为`lotus-scaffold-你的项目名`的项目,
+> 所有lotus脚手架的前缀必须是 `lotus-scaffold`
 
 ```bash
-mkdir myproject
-cd myproject
+mkdir lotus-scaffold-你的项目名
+cd lotus-scaffold-你的项目名
 lo
 ? What do you want to do?
   项目模板
