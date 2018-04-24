@@ -9,12 +9,12 @@
 * Mac/Linux/Windows
 
 安装:
-```
+```bash
 npm install lotusjs-cli -g
 ```
 
 大陆用户:
-```
+```bash
 cnpm install lotusjs-cli -g
 ```
 
@@ -27,7 +27,6 @@ cnpm install lotusjs-cli -g
 ❯ 项目模板
   项目初始化
   脚手架
-  脚手架版本管理
   占卜
 ```
 
@@ -54,7 +53,7 @@ cnpm install lotusjs-cli -g
 选择这上面已有的框架,直接初始化你的项目了
 
 或者直接命令安初始化你的项目
-```
+```bash
 lo init micro-react
 // or
 lo i micro-react
@@ -155,8 +154,29 @@ lo install pm2 react  -g
 lo info pm2
 ```
 
-## 本地脚手架版本管理
+## 脚手架管理
+新建一个脚手架项目目录
 
+```bash
+mkdir myproject
+cd myproject
+lo
+? What do you want to do?
+  项目模板
+  项目初始化
+❯  脚手架
+  private npm
+  老黄历
+```
+
+选择脚手架初始化,或者更新你的脚手架部分代码
+```bash
+? What do you want to do? 脚手架
+? What do you want to do? (Use arrow keys)
+❯ 初始化
+  更新
+```
+选择初始化后,程序会生成`lotusjs`脚手架的标准代码
 
 ## 查看今天运势
 ```bash
