@@ -165,7 +165,7 @@ lo
 ? What do you want to do?
   项目模板
   项目初始化
-❯  脚手架
+❯ 脚手架
   private npm
   老黄历
 ```
