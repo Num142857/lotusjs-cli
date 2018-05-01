@@ -23,14 +23,7 @@ module.exports = {
                         log.warn('文件夹_lotus已存在,作业停止');
                         return
                     }
-                    download('github:Fantasy9527/lotus-scaffold', process.cwd(), (err) => {
-                        if (err) {
-                            log.warn(err);
-                            return
-                        }
-                        this.generatePackage()
-                        log.info('脚手架初始化完成')
-                    })
+                    this.downloadRepo('init')
                     break;
 
                 case '更新':
@@ -43,20 +36,8 @@ module.exports = {
                     }]);
                     if (questions === '否') return;
                     log.info('正在更新你的脚手架核心代码')
-                    let temp_dir = process.cwd() + "/temp_lotus";
-                    let target_dir = process.cwd() + "/_lotus";
-                    download('github:Fantasy9527/lotus-scaffold', temp_dir, async (err) => {
-                        if (err) {
-                            log.warn(err);
-                            return
-                        }
-
-                        let copy_bin = await fse.copy(temp_dir + "/_lotus/bin", target_dir + "/bin")
-
-                        this.generatePackage()
-                        await fse.remove(temp_dir)
-                        log.info('脚手架核心代码更新完成')
-                    })
+                    this.downloadRepo('update')
+                
                     break;
             }
         } catch (error) {
@@ -64,12 +45,43 @@ module.exports = {
         }
 
     },
+    async downloadRepo(type){
+        let temp_dir = process.cwd() + "/temp_lotus";
+        let target_dir = process.cwd() + "/_lotus";
+        download('github:Fantasy9527/lotus-scaffold', temp_dir, async (err) => {
+            if (err) {
+                log.warn(err);
+                return
+            }
+            switch (type) {
+                case 'init':
+                //初始化,全部复制
+                    await fse.copy(temp_dir + "/_lotus/", target_dir + "/")
+                    break;
+
+                case 'update':
+                //更新,部分复制
+                    await fse.copy(temp_dir + "/_lotus/bin", target_dir + "/bin")
+                    break;
+            }
+            
+
+            // package.json 是否覆盖
+            let packageExist = fs.existsSync(`${process.cwd()}/package.json`)
+            if (!packageExist){
+                await fse.copy(temp_dir + "/package.json", target_dir + "/")
+            }
+            this.generatePackage()
+            await fse.remove(temp_dir)
+            log.info('脚手架已经准备完毕,尽情使用吧~')
+        })
+    },
     async generatePackage() {
         let packagePath = `${process.cwd()}/package.json`
         let pathArr = process.cwd().split('/')
         let appName = pathArr[pathArr.length - 1]
         let packageExist = fs.existsSync(packagePath)
-        // console.log(packageExist)
+        console.log('是否存在', packageExist, packagePath)
         if (packageExist) {
             //修改文件
             let appinfo = await fse.readJson(packagePath)
@@ -82,14 +94,14 @@ module.exports = {
             })
         } else {
             //重新生成
-            let appinfo = {
+            let newAppInfo = {
                 "name": appName,
                 "scaffold": appName,
                 "version": "0.0.1",
                 "bin": {}
             }
-            appinfo.bin[appName] = "_lotus/bin/index.js"
-            await fse.writeJson(packagePath, appinfo, {
+            newAppInfo.bin[appName] = "_lotus/bin/index.js"
+            await fse.writeJson(packagePath, newAppInfo, {
                 spaces: 4
             })
         }
