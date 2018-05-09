@@ -32,7 +32,7 @@ module.exports = {
           config = ['--registry', 'http://npm.jc']
           arg = cmd.concat(answers.arg)
           arg = arg.concat(config)
-          console.log(arg)
+          // console.log(arg)
           spawn(`npm`, arg, {
             cwd: process.cwd(),
             stdio: 'inherit'

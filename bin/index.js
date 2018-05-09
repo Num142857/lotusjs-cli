@@ -21,7 +21,6 @@ program
   .arguments('<name>')  //[]:可选  <>:必选
   .action((name)=>{
     scaffoldInit.callback(name,'cmd')
-    return
   });
 
 program
@@ -31,14 +30,12 @@ program
   .arguments('<type> [src]')  //[]:可选  <>:必选
   .action((type, src)=>{
     generate.init(type, src)
-    process.exit(1);
   });
 program
   .command('publish')
   .description('发布私有包')
   .action((type, src)=>{
     npm.callback({ do:'publish'})
-    
   });
 
 program
@@ -46,7 +43,6 @@ program
   .description('登录或者注册')
   .action((type, src)=>{
     npm.callback({ do:'adduser'})
-    
   });
 
 program
@@ -58,7 +54,6 @@ program
     if (cmd.save) otherName.push('--save')
     if (cmd.global) otherName.push('-g')
     npm.callback({ do: 'install', arg: otherName})
-    
   });
 
 program
@@ -66,7 +61,6 @@ program
   .description('从私有库查看npm包详细信息')
   .action((otherName, cmd)=>{
     npm.callback({ do: 'info', arg: otherName})
-    
   });
 
 // program
