@@ -21,7 +21,7 @@ program
   .arguments('<name>')  //[]:可选  <>:必选
   .action((name)=>{
     scaffoldInit.callback(name,'cmd')
-    process.exit(1);
+    return
   });
 
 program
@@ -38,7 +38,7 @@ program
   .description('发布私有包')
   .action((type, src)=>{
     npm.callback({ do:'publish'})
-    process.exit(1);
+    
   });
 
 program
@@ -46,7 +46,7 @@ program
   .description('登录或者注册')
   .action((type, src)=>{
     npm.callback({ do:'adduser'})
-    process.exit(1);
+    
   });
 
 program
@@ -58,7 +58,6 @@ program
     if (cmd.save) otherName.push('--save')
     if (cmd.global) otherName.push('-g')
     npm.callback({ do: 'install', arg: otherName})
-    process.exit(1);
     
   });
 
@@ -67,20 +66,25 @@ program
   .description('从私有库查看npm包详细信息')
   .action((otherName, cmd)=>{
     npm.callback({ do: 'info', arg: otherName})
-    process.exit(1);
+    
   });
 
 // program
 //   .command('*')
 //   .description('从私有库查看npm包详细信息')
 //   .action((otherName, cmd)=>{
-//     npm.callback({ do: 'info', arg: otherName})
-//     process.exit(1);
+//     inquirerHandle()
+//     
 //   });
 
 program.parse(process.argv);
-// console.log(program.save)
-inquirer
+
+if(program.args.length === 0){
+  inquirerHandle()
+}
+
+function inquirerHandle(){
+  inquirer
   .prompt([{
     type: 'list',
     name: 'do',
@@ -107,3 +111,4 @@ inquirer
         break;
     }
   });
+}

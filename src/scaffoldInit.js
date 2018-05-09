@@ -12,6 +12,7 @@ module.exports = {
       'micro-react',
       'micro-antd',
       'micro-antd-sub',
+      'micro-frontend-portal',
       'micro-frontend-server',
     ]
   }, ],
@@ -38,10 +39,10 @@ module.exports = {
       log.warn('报错了：' + error)
       }
     }
-    console.log(remoteVersion , localVersion)
+
     if(remoteVersion !== localVersion){
       //todo：需要询问用户是否更新，或者忽略该版本
-      log.info(`发现新版本${remoteVersion}`,'开始更新')
+      log.info(`当前版本:${localVersion}, 发现新版本${remoteVersion}`,'开始更新')
       installPack()
     }
     
