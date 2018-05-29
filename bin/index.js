@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-var inquirer = require('inquirer')
+const inquirer = require('inquirer')
 const program = require('commander');
 const util = require('lotusjs-util')
 const appInfo = require('../package.json')
-var scaffoldInit = require('../src/scaffoldInit')
-var generate = require('../src/generate')
-var coderCalendar = require('../src/coderCalendar')
-var npm = require('../src/npm')
-var scaffoldUpdate = require('../src/scaffoldUpdate')
+const scaffoldInit = require('../src/scaffoldInit')
+const generate = require('../src/generate')
+const calendar = require('../src/calendar')
+const npm = require('../src/npm')
+const scaffoldUpdate = require('../src/scaffoldUpdate')
 
 global.log = util.log;
 global.exec = util.exec;
@@ -83,7 +83,7 @@ function inquirerHandle(){
     type: 'list',
     name: 'do',
     message: 'What do you want to do?',
-    choices: ['项目模板', '项目初始化', '脚手架','private npm', '老黄历'],
+    choices: ['项目模板', '项目初始化', '脚手架','jc npm', '今日运势'],
   },
   ])
   .then(answers => {
@@ -94,10 +94,10 @@ function inquirerHandle(){
       case '项目模板':
         generate.execute()
         break;
-      case '老黄历':
-        coderCalendar.init()
+      case '今日运势':
+        calendar.init()
         break;
-      case 'private npm':
+      case 'jc npm':
       inquirer.prompt(npm.config).then(answers => { npm.callback(answers) })
         break;
       case '脚手架':

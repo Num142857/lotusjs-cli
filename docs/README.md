@@ -1,6 +1,6 @@
 ## lotus-cli
 
-> 一个意外到让你尖叫的交互式前端通用脚手架管理工具
+> 一个交互式Javascript脚手架管理工具
 
 ## lotusjs-cli 是什么
 

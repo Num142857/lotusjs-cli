@@ -1,7 +1,7 @@
 
 # 快速入门
 
-> 一个意外到让你尖叫的交互式前端通用脚手架管理工具
+> 一个交互式Javascript脚手架管理工具
 
 ## 安装与更新
 依赖环境:
@@ -83,21 +83,21 @@ lo g page src/model/my-new-page
 ```
 
 ## 内部私有npm包管理
-选择 `private npm`
+选择 `jc npm`
 
 ```bash
 ? What do you want to do?
   项目模板
   项目初始化
   脚手架
-❯ private npm
-  老黄历
+❯ jc npm
+  今日运势
 ```
 ### 发布私有包
 进入项目根目录
 选择 `publish`
 ```
-? What do you want to do? private npm
+? What do you want to do? jc npm
 ? What do you want to do? (Use arrow keys)
 ❯ publish
   add user
@@ -109,7 +109,7 @@ lo publish
 ### 登录或者注册私有npm
 选择  `add user`
 ```
-? What do you want to do? private npm
+? What do you want to do? jc npm
 ? What do you want to do? (Use arrow keys)
   publish
 ❯ add user
@@ -166,8 +166,8 @@ lo
   项目模板
   项目初始化
 ❯ 脚手架
-  private npm
-  老黄历
+  jc npm
+  今日运势
 ```
 
 选择脚手架初始化,或者更新你的脚手架部分代码
@@ -182,7 +182,7 @@ lo
 ## 查看今天运势
 ```bash
 $ lo
-? What do you want to do? 老黄历
+? What do you want to do? 今日运势
 
         现在是2018年4月10日星期二晚上6点52分
         ---------------------------------
