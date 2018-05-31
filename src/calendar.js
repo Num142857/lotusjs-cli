@@ -4,7 +4,6 @@ var chalk = require("chalk")
 moment.locale('zh-cn');
 let baseNumber = moment().dayOfYear() * 666 * 880+'';
 let currentDay  = moment().dayOfYear()
-console.log(baseNumber , baseNumber.length)
 let tools = ["VS Code写程序", "MSOffice写文档", "记事本写程序", "Windows10", "Linux", "MacOS", "IE", "Android设备", "iOS设备"];
 let activities = [
     { name: "写单元测试", good: "写单元测试将减少出错", bad: "写单元测试会降低你的开发效率" },
@@ -48,9 +47,7 @@ function random(dayseed, indexseed) {
 module.exports = {
     init(){
         let luckyNumber =random(baseNumber,currentDay)
-        console.log('luckyNumber',luckyNumber)
         let indexofLucky = luckyNumber.split('');
-        
         let badNumber = (baseNumber / 4)+""
         let indexofBad = badNumber.split('');
         
