@@ -2,12 +2,14 @@
 const moment = require("moment");
 var chalk = require("chalk")
 moment.locale('zh-cn');
-let baseNumber = moment().dayOfYear() * 666 * 888;
+let baseNumber = moment().dayOfYear() * 666 * 880+'';
+let currentDay  = moment().dayOfYear()
+console.log(baseNumber , baseNumber.length)
 let tools = ["VS Code写程序", "MSOffice写文档", "记事本写程序", "Windows10", "Linux", "MacOS", "IE", "Android设备", "iOS设备"];
 let activities = [
     { name: "写单元测试", good: "写单元测试将减少出错", bad: "写单元测试会降低你的开发效率" },
     { name: "洗澡", good: "你几天没洗澡了？", bad: "会把设计方面的灵感洗掉", weekend: true },
-    { name: "锻炼一下身体", good: "", bad: "能量没消耗多少，吃得却更多", weekend: true },
+    { name: "锻炼一下身体", good: "完美身材,跟女神在一起会有戏", bad: "能量没消耗多少，吃得却更多", weekend: true },
     { name: "抽烟", good: "抽烟有利于提神，增加思维敏捷", bad: "除非你活够了，死得早点没关系", weekend: true },
     { name: "白天上线", good: "今天白天上线是安全的", bad: "可能导致灾难性后果" },
     { name: "重构", good: "代码质量得到提高", bad: "你很有可能会陷入泥潭" },
@@ -25,7 +27,6 @@ let activities = [
     { name: "晚上上线", good: "晚上是程序员精神最好的时候", bad: "你白天已经筋疲力尽了" },
     { name: "修复BUG", good: "你今天对BUG的嗅觉大大提高", bad: "新产生的BUG将比修复的更多" },
     { name: "设计评审", good: "设计评审会议将变成头脑风暴", bad: "人人筋疲力尽，评审就这么过了" },
-    { name: "需求评审", good: "", bad: "" },
     { name: "上微博", good: "今天发生的事不能错过", bad: "今天的微博充满负能量", weekend: true },
     { name: "上B站", good: "还需要理由吗？", bad: "满屏的兄贵我会说出来？", weekend: true },
 ]
@@ -33,31 +34,26 @@ let weeks = ["日", "一", "二", "三", "四", "五", "六"]
 let directions = ["北方", "东北方", "东方", "东南方", "南方", "西南方", "西方", "西北方"]
 let drinks = ["水", "茶", "红茶", "绿茶", "咖啡", "奶茶", "可乐", "牛奶", "豆奶", "果汁", "果味汽水", "苏打水", "运动饮料", "酸奶", "酒"]
 
-// function random(Min, Max) {
-//     var Range = Max - Min;
-//     var Rand = Math.random();
-//     var num = Min + Math.round(Rand * Range); //四舍五入
-//     return num;
-// }
-
 
 function random(dayseed, indexseed) {
-	var n = dayseed % 11117;
+	var n = dayseed % 9999999;
 	for (var i = 0; i < 100 + indexseed; i++) {
 		n = n * n;
-		n = n % 11117;   // 11117 是个质数
+		n = n % 5555555; 
 	}
-	return n;
+	return n+'';
 }
 
 
 module.exports = {
     init(){
-        let luckyNumber = (baseNumber / 6)+""
+        let luckyNumber =random(baseNumber,currentDay)
+        console.log('luckyNumber',luckyNumber)
         let indexofLucky = luckyNumber.split('');
         
         let badNumber = (baseNumber / 4)+""
         let indexofBad = badNumber.split('');
+        
         function printLuck(index){
             let luckIndex = indexofLucky[index]
             let name = activities[luckIndex].name
