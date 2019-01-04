@@ -34,7 +34,7 @@ module.exports = {
    let installPack = async function(){
       try {
         log.info('开始拉取' , scaffoldName)
-        await exec(`cnpm i ${scaffoldName} -g`)
+        shelljs.exec(`cnpm i ${scaffoldName} -g`)
       } catch (error) {
       log.warn('报错了：' + error)
       }
@@ -42,7 +42,12 @@ module.exports = {
 
     if(remoteVersion !== localVersion){
       //todo：需要询问用户是否更新，或者忽略该版本
-      log.info(`当前版本:${localVersion}, 发现新版本${remoteVersion}`,'开始更新')
+      if(localVersion){
+        log.info(`当前版本:${localVersion}, 发现新版本${remoteVersion}`,'开始更新')
+      }else{
+        log.info(`开始安装${remoteVersion}`)
+      }
+     
       installPack()
     }
     

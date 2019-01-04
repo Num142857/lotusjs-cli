@@ -81,7 +81,7 @@ module.exports = {
         let pathArr = process.cwd().split('/')
         let appName = pathArr[pathArr.length - 1]
         let packageExist = fs.existsSync(packagePath)
-        console.log('是否存在', packageExist, packagePath)
+        // console.log('是否存在', packageExist, packagePath)
         if (packageExist) {
             //修改文件
             let appinfo = await fse.readJson(packagePath)

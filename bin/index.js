@@ -83,7 +83,7 @@ function inquirerHandle(){
     type: 'list',
     name: 'do',
     message: 'What do you want to do?',
-    choices: ['项目模板', '项目初始化', '脚手架','npm', '今日运势'],
+    choices: [ '项目初始化', '项目模板', '脚手架','npm', '今日运势'],
   },
   ])
   .then(answers => {

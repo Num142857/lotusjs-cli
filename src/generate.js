@@ -21,6 +21,10 @@ module.exports = {
         // 根据项目配置文件,找到相应的命令行. 执行选择模板类型的交互式命令行
         try {
             let appinfo = await fse.readJson(process.cwd() + '/package.json')
+            if(shelljs.which(appinfo.scaffold)){
+                log.warn('您的项目不符合lotus脚手架规范,任务停止')
+                return
+              }
             spawn(`${appinfo.scaffold}`, ['g', 'generateList'], {
                 cwd: process.cwd(),
                 stdio: 'inherit'
