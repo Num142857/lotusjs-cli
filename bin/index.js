@@ -83,7 +83,7 @@ function inquirerHandle(){
     type: 'list',
     name: 'do',
     message: 'What do you want to do?',
-    choices: ['项目模板', '项目初始化', '脚手架','jc npm', '今日运势'],
+    choices: ['项目模板', '项目初始化', '脚手架','npm', '今日运势'],
   },
   ])
   .then(answers => {
@@ -97,7 +97,7 @@ function inquirerHandle(){
       case '今日运势':
         calendar.init()
         break;
-      case 'jc npm':
+      case 'npm':
       inquirer.prompt(npm.config).then(answers => { npm.callback(answers) })
         break;
       case '脚手架':

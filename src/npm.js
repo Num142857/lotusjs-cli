@@ -1,6 +1,4 @@
-var inquirer = require('inquirer')
 var spawn = require('child_process').spawn;
-const shelljs = require('shelljs');
 
 module.exports = {
   config: [{
@@ -14,14 +12,14 @@ module.exports = {
     try {
       switch (answers.do) {
         case 'publish':
-          spawn(`npm`, ['publish', '--registry', 'http://npm.jc'], {
+          spawn(`npm`, ['publish', '--registry', 'https://registry.npm.taobao.org'], {
             cwd: process.cwd(),
             stdio: 'inherit'
           });
           break;
 
         case 'adduser':
-          spawn(`npm`, ['adduser', '--registry', 'http://npm.jc'], {
+          spawn(`npm`, ['adduser', '--registry', 'https://registry.npm.taobao.org'], {
             cwd: process.cwd(),
             stdio: 'inherit'
           });
@@ -29,7 +27,7 @@ module.exports = {
 
         case 'install':
           cmd = ['install']
-          config = ['--registry', 'http://npm.jc']
+          config = ['--registry', 'https://registry.npm.taobao.org']
           arg = cmd.concat(answers.arg)
           arg = arg.concat(config)
           // console.log(arg)
@@ -41,7 +39,7 @@ module.exports = {
 
         case 'info':
           cmd = ['info']
-          config = ['--registry', 'http://npm.jc']
+          config = ['--registry', 'https://registry.npm.taobao.org']
           arg = cmd.concat(answers.arg)
           arg = arg.concat(config)
           spawn(`npm`, arg, {

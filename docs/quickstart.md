@@ -83,21 +83,21 @@ lo g page src/model/my-new-page
 ```
 
 ## 内部私有npm包管理
-选择 `jc npm`
+选择 `npm`
 
 ```bash
 ? What do you want to do?
   项目模板
   项目初始化
   脚手架
-❯ jc npm
+❯ npm
   今日运势
 ```
 ### 发布私有包
 进入项目根目录
 选择 `publish`
 ```
-? What do you want to do? jc npm
+? What do you want to do? npm
 ? What do you want to do? (Use arrow keys)
 ❯ publish
   add user
@@ -109,7 +109,7 @@ lo publish
 ### 登录或者注册私有npm
 选择  `add user`
 ```
-? What do you want to do? jc npm
+? What do you want to do? npm
 ? What do you want to do? (Use arrow keys)
   publish
 ❯ add user
@@ -166,7 +166,7 @@ lo
   项目模板
   项目初始化
 ❯ 脚手架
-  jc npm
+  npm
   今日运势
 ```
 
